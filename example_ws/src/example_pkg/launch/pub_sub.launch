@@ -1,5 +1,7 @@
 <launch>
 
+    <env name="COVERAGE_PROCESS_START" value=""
+
     <node pkg="example_pkg" name="publisher_node" type="publisher_node.py" />
     <node pkg="example_pkg" name="subscriber_node" type="subscriber_node.py" />
 
