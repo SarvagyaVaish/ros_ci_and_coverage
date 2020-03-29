@@ -1,0 +1,10 @@
+<launch>
+
+    <env name="COVERAGE_PROCESS_START" value=".coveragerc"/>
+
+    <node pkg="example_pkg" name="publisher_node" type="publisher_node.py" />
+    <node pkg="example_pkg" name="subscriber_node" type="subscriber_node.py" />
+
+    <test time-limit="10" test-name="sample_rostest" pkg="example_pkg" type="sample_rostest.py" />
+
+</launch>
