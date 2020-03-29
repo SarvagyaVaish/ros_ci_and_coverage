@@ -4,13 +4,20 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.formatting.provider": "black",
-
     "editor.formatOnSave": true,
-
+    //
     // Paths to python packages used for intellisense
     "python.autoComplete.extraPaths": [
         "/opt/ros/melodic/lib/python2.7/dist-packages", // linux only, if ROS is installed
         "${workspaceFolder}/example_ws/devel/lib/python2.7/dist-packages", // linux only, if ws is built
         "${workspaceFolder}/example_ws/src/example_pkg/src",
     ],
+    //
+    // Yaml schema for TravisCI
+    // Install the yaml VSCode extension
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/travis-ci/travis-yml/master/schema.json": [
+            ".travis.yml"
+        ],
+    }
 }

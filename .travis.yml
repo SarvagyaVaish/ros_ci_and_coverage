@@ -1,1 +1,17 @@
+os: linux
 language: python
+dist: xenial
+
+jobs:
+  include:
+    - name: ROS tests
+      sudo: required
+      services:
+        - docker
+
+      before_install:
+        - docker pull osrf/ros:melodic-desktop-full
+      script:
+        - docker run osrf/ros:melodic-desktop-full
+      after_script:
+        - docker ps -l
