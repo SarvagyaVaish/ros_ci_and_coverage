@@ -1,9 +1,9 @@
 TravisCI: [![Build Status](https://travis-ci.org/SarvagyaVaish/ros_ci_and_coverage.svg?branch=master)](https://travis-ci.org/SarvagyaVaish/ros_ci_and_coverage)
 
-## This template is good for
+## Export the following
 
--
-
+export COVERAGE_PROCESS_START=.coveragerc
+export COVERAGE_RCFILE=/home/turtlebot/ros_ci_and_coverage/example_ws/.coveragerc
 
 ## Python virtual env setup
 

@@ -1,0 +1,5 @@
+[run]
+concurrency = multiprocessing
+omit = 
+	*/devel/*
+	/opt/ros/melodic/*

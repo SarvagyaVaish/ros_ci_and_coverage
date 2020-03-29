@@ -17,5 +17,4 @@ jobs:
       install:
         - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci
       script:
-        # - .industrial_ci/travis.sh
-        - pwd
+        - .industrial_ci/travis.sh

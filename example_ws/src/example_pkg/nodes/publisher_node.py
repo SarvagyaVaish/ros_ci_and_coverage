@@ -3,6 +3,7 @@
 import rospy
 from std_msgs.msg import String
 
+import example_pkg.measure_coverage
 from example_pkg.utils import get_time_str
 
 

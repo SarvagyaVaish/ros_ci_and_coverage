@@ -3,6 +3,9 @@
 import rospy
 from std_msgs.msg import String
 
+import example_pkg.measure_coverage
+from example_pkg.utils import foo_bar
+
 
 def callback(data):
     rospy.loginfo("Received: {}".format(data.data))
@@ -11,6 +14,7 @@ def callback(data):
 def listener():
     rospy.init_node("subscriber_node", anonymous=True)
     rospy.Subscriber("chatter", String, callback)
+    foo_bar()
     rospy.spin()
 
 
