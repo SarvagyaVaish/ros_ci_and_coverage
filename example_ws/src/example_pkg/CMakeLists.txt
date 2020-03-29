@@ -195,11 +195,13 @@ include_directories(
 ## Testing ##
 #############
 
-## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_example_pkg.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
+if (CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
 
-## Add folders to be run by python nosetests
-# catkin_add_nosetests(test)
+  # This will run all NON-executable .py files in test folder
+  catkin_add_nosetests(test)
+
+  # # Integration tests
+  # add_rostest(test/xyz.test)
+
+endif()

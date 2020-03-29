@@ -5,8 +5,10 @@ dist: xenial
 jobs:
   include:
     - name: ROS tests
+      #
       # The following was taken from here
       # https://github.com/ros-industrial/industrial_ci/tree/master#id4
+      #
       sudo: required
       services:
         - docker
