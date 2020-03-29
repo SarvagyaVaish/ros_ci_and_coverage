@@ -5,20 +5,14 @@ dist: xenial
 jobs:
   include:
     - name: ROS tests
+      # The following was taken from here
+      # https://github.com/ros-industrial/industrial_ci/tree/master#id4
       sudo: required
       services:
         - docker
-
       env:
         - ROS_DISTRO="melodic"
-
-      # before_install:
-      #   - docker pull osrf/ros:melodic-desktop-full
       install:
         - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci
       script:
         - .industrial_ci/travis.sh
-      # script:
-      #   - docker run osrf/ros:melodic-desktop-full
-      # after_script:
-      #   - docker ps -l
