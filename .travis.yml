@@ -10,8 +10,7 @@ jobs:
         - docker
 
       env:
-        matrix:
-          - ROS_DISTRO="melodic"
+        - ROS_DISTRO="melodic"
 
       # before_install:
       #   - docker pull osrf/ros:melodic-desktop-full
