@@ -1,0 +1,16 @@
+{
+    "python.pythonPath": "${workspaceFolder}/venv/bin/python3.6",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "black",
+
+    "editor.formatOnSave": true,
+
+    // Paths to python packages used for intellisense
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/melodic/lib/python2.7/dist-packages", // linux only, if ROS is installed
+        "${workspaceFolder}/example_ws/devel/lib/python2.7/dist-packages", // linux only, if ws is built
+        "${workspaceFolder}/example_ws/src/example_pkg/src",
+    ],
+}
