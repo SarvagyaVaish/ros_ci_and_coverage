@@ -4,6 +4,7 @@ TravisCI: [![Build Status](https://travis-ci.org/SarvagyaVaish/ros_ci_and_covera
 
 export COVERAGE_PROCESS_START=.coveragerc
 export COVERAGE_RCFILE=/home/turtlebot/ros_ci_and_coverage/example_ws/.coveragerc
+export CODECOV_TOKEN="..."  # codecov.io
 
 ## Python virtual env setup
 
