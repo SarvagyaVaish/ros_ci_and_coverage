@@ -16,7 +16,7 @@ jobs:
         - ROS_DISTRO="melodic"
         - BEFORE_SETUP_TARGET_WORKSPACE="pip install coverage"
         - DOCKER_RUN_OPTS="-e COVERAGE_RC_FILE=/root/target_ws/src/ros_ci_and_coverage/.coveragerc -e COVERAGE_PROCESS_START=.coveragerc -e CODECOV_TOKEN=$CODECOV_TOKEN"
-        - AFTER_RUN_TARGET_TEST="python-coverage combine /root/.ros/ && python-coverage xml && bash <(curl -s https://codecov.io/bash)"
+        - AFTER_RUN_TARGET_TEST="coverage combine /root/.ros/ && coverage xml && bash <(curl -s https://codecov.io/bash)"
       install:
         - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci -b master
       script:
