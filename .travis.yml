@@ -15,6 +15,7 @@ jobs:
       env:
         - ROS_DISTRO="melodic"
         - BEFORE_SETUP_TARGET_WORKSPACE="pip install coverage"
+        - AFTER_BUILD_TARGET_WORKSPACE="ls -a /root"
         - DOCKER_RUN_OPTS="-e COVERAGE_RC_FILE=/root/target_ws/src/ros_ci_and_coverage/.coveragerc -e COVERAGE_PROCESS_START=.coveragerc -e CODECOV_TOKEN=$CODECOV_TOKEN"
         - AFTER_RUN_TARGET_TEST="coverage combine /root/.ros/ && coverage xml && bash <(curl -s https://codecov.io/bash)"
       install:
