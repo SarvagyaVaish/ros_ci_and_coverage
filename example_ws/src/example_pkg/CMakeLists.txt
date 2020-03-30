@@ -201,7 +201,7 @@ if (CATKIN_ENABLE_TESTING)
   # This will run all NON-executable .py files in test folder
   catkin_add_nosetests(test)
 
-  # # Integration tests
-  # add_rostest(test/xyz.test)
+  # Integration tests
+  add_rostest(test/xyz.test)
 
 endif()
