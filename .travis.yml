@@ -14,7 +14,7 @@ jobs:
         - docker
       env:
         - ROS_DISTRO="melodic"
-        - AFTER_BUILD_TARGET_WORKSPACE="source /opt/ros/melodic/setup.bash && roscd log && pwd" 
+        - AFTER_BUILD_TARGET_WORKSPACE="set +u && source /opt/ros/melodic/setup.bash && roscd log && pwd" 
       install:
         - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci -b master
       script:
