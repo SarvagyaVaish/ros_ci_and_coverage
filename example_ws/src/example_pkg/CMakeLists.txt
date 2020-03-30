@@ -202,6 +202,6 @@ if (CATKIN_ENABLE_TESTING)
   catkin_add_nosetests(test)
 
   # Integration tests
-  add_rostest(test/xyz.test)
+  add_rostest(test/sample_rostest.test)
 
 endif()
