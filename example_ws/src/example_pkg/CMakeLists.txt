@@ -207,7 +207,7 @@ if (CATKIN_ENABLE_TESTING)
   catkin_add_nosetests(test)
 
   # Integration tests
-  add_rostest(test/sample_rostest.test ARGS coverage:=True)
+  add_rostest(test/sample_rostest.test ARGS coverage:=ENABLE_COVERAGE_TESTING)
 
   if (ENABLE_COVERAGE_TESTING)
     set(COVERAGE_EXLCUDES "*/${PROJECT_NAME}/test*")
