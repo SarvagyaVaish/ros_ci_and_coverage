@@ -16,7 +16,7 @@ jobs:
         - ADDITIONAL_DEBS="curl"
         - ROS_DISTRO="melodic"
         - UPSTREAM_WORKSPACE="upstream.repos"
-        - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING"
+        - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING=ON"
         - DOCKER_RUN_OPTS="-e TRAVIS_COMMIT=$TRAVIS_COMMIT -e COVERAGE_RCFILE=/root/target_ws/src/ros_ci_and_coverage/.coveragerc -e COVERAGE_PROCESS_START=.coveragerc -e CODECOV_TOKEN=$CODECOV_TOKEN"
         - AFTER_RUN_TARGET_TEST="bash <(curl -s https://codecov.io/bash) -s /root/.ros -C $TRAVIS_COMMIT"
       install:
