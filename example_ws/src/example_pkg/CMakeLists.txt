@@ -108,6 +108,11 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
+if (CATKIN_ENABLE_TESTING AND ENABLE_COVERAGE_TESTING)
+  find_package(code_coverage REQUIRED)
+  APPEND_COVERAGE_COMPILER_FLAGS()
+endif()
+
 ###########
 ## Build ##
 ###########
@@ -196,7 +201,6 @@ include_directories(
 #############
 
 if (CATKIN_ENABLE_TESTING)
-  find_package(code_coverage REQUIRED)
   find_package(rostest REQUIRED)
 
   # This will run all NON-executable .py files in test folder
