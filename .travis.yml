@@ -18,6 +18,7 @@ jobs:
         - UPSTREAM_WORKSPACE="upstream.repos"
         - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING=ON -DCMAKE_BUILD_TYPE=Debug"
         - DOCKER_RUN_OPTS="-e TRAVIS_COMMIT=$TRAVIS_COMMIT -e CODECOV_TOKEN=$CODECOV_TOKEN"
+        - BEFORE_BEFORE_RUN_TARGET_TEST="echo $ROS_HOME"
         - BEFORE_RUN_TARGET_TEST="echo $HOME"
         - BEFORE_AFTER_RUN_TARGET_TEST="ls -a /root/.ros/"
         - AFTER_RUN_TARGET_TEST="cd /root/.ros && python-coverage combine && python-coverage xml"
