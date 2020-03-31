@@ -196,12 +196,21 @@ include_directories(
 #############
 
 if (CATKIN_ENABLE_TESTING)
+  find_package(code_coverage REQUIRED)
   find_package(rostest REQUIRED)
 
   # This will run all NON-executable .py files in test folder
   catkin_add_nosetests(test)
 
   # Integration tests
-  add_rostest(test/sample_rostest.test)
+  add_rostest(test/sample_rostest.test ARGS coverage:=True)
+
+  if (ENABLE_COVERAGE_TESTING)
+    set(COVERAGE_EXLCUDES "*/${PROJECT_NAME}/test*")
+    add_code_coverage(
+      NAME ${PROJECT_NAME}_coverage_report
+      DEPENDENCIES tests
+    )
+  endif()
 
 endif()
