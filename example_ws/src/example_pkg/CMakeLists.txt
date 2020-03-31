@@ -108,6 +108,11 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
+if (CATKIN_ENABLE_TESTING AND ENABLE_COVERAGE_TESTING)
+  find_package(code_coverage REQUIRED)
+  APPEND_COVERAGE_COMPILER_FLAGS()
+endif()
+
 ###########
 ## Build ##
 ###########
@@ -202,6 +207,14 @@ if (CATKIN_ENABLE_TESTING)
   catkin_add_nosetests(test)
 
   # Integration tests
-  add_rostest(test/sample_rostest.test)
+  add_rostest(test/sample_rostest.test ARGS coverage:=ENABLE_COVERAGE_TESTING)
+
+  if (ENABLE_COVERAGE_TESTING)
+    set(COVERAGE_EXLCUDES "*/${PROJECT_NAME}/test*")
+    add_code_coverage(
+      NAME ${PROJECT_NAME}_coverage_report
+      DEPENDENCIES tests
+    )
+  endif()
 
 endif()

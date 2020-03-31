@@ -15,9 +15,12 @@ jobs:
       env:
         - ADDITIONAL_DEBS="curl"
         - ROS_DISTRO="melodic"
-        - BEFORE_SETUP_TARGET_WORKSPACE="pip install coverage"
-        - DOCKER_RUN_OPTS="-e TRAVIS_COMMIT=$TRAVIS_COMMIT -e COVERAGE_RCFILE=/root/target_ws/src/ros_ci_and_coverage/.coveragerc -e COVERAGE_PROCESS_START=.coveragerc -e CODECOV_TOKEN=$CODECOV_TOKEN"
-        - AFTER_RUN_TARGET_TEST="cd /root/.ros && coverage combine && coverage xml"
+        - UPSTREAM_WORKSPACE="upstream.repos"
+        - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING=ON -DCMAKE_BUILD_TYPE=Debug"
+        - DOCKER_RUN_OPTS="-e TRAVIS_COMMIT=$TRAVIS_COMMIT -e CODECOV_TOKEN=$CODECOV_TOKEN"
+        # Manually trigger combine (we aren't actually calling code_coverage target)
+        - AFTER_RUN_TARGET_TEST="cd /root/.ros && python-coverage combine && python-coverage xml"
+        # Upload coverage information to codecov.io
         - AFTER_AFTER_RUN_TARGET_TEST="bash <(curl -s https://codecov.io/bash) -s /root/.ros -C $TRAVIS_COMMIT"
       install:
         - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci -b master

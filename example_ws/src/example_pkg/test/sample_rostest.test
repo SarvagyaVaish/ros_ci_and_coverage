@@ -1,10 +1,14 @@
 <launch>
 
-    <env name="COVERAGE_PROCESS_START" value=".coveragerc"/>
+    <arg name="coverage" default="false"/>
+    <arg name="pythontest_launch_prefix" value="$(eval 'python-coverage run -p' if arg('coverage') else '')"/>
 
-    <node pkg="example_pkg" name="publisher_node" type="publisher_node.py" />
-    <node pkg="example_pkg" name="subscriber_node" type="subscriber_node.py" />
+    <node pkg="example_pkg" name="publisher_node" type="publisher_node.py"
+          launch-prefix="$(arg pythontest_launch_prefix)"/>
+    <node pkg="example_pkg" name="subscriber_node" type="subscriber_node.py"
+          launch-prefix="$(arg pythontest_launch_prefix)" />
 
-    <test time-limit="10" test-name="sample_rostest" pkg="example_pkg" type="sample_rostest.py" />
+    <test time-limit="10" test-name="sample_rostest" pkg="example_pkg" type="sample_rostest.py"
+          launch-prefix="$(arg pythontest_launch_prefix)" />
 
 </launch>
