@@ -17,7 +17,7 @@ jobs:
         - ROS_DISTRO="melodic"
         - UPSTREAM_WORKSPACE="upstream.repos"
         - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING=ON -DCMAKE_BUILD_TYPE=Debug"
-        - DOCKER_RUN_OPTS="-e TRAVIS_COMMIT=$TRAVIS_COMMIT -e COVERAGE_RCFILE=/root/target_ws/src/ros_ci_and_coverage/.coveragerc -e HOME=/root -e COVERAGE_PROCESS_START=.coveragerc -e CODECOV_TOKEN=$CODECOV_TOKEN"
+        - DOCKER_RUN_OPTS="-e TRAVIS_COMMIT=$TRAVIS_COMMIT -e CODECOV_TOKEN=$CODECOV_TOKEN"
         - AFTER_AFTER_RUN_TARGET_TEST="bash <(curl -s https://codecov.io/bash) -s /root/.ros -C $TRAVIS_COMMIT"
         - AFTER_RUN_TARGET_TEST="ls -a /root/.ros/"
         - BEFORE_RUN_TARGET_TEST="echo $HOME"
