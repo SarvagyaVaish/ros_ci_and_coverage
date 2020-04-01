@@ -12,3 +12,10 @@ def foo_bar():
         return True
     else:
         return False
+
+
+def foo_bar_2():
+    if 4 % 2 == 0:
+        return True
+    else:
+        return False
