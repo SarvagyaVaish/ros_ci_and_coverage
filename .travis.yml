@@ -15,13 +15,13 @@ jobs:
       env:
         - ADDITIONAL_DEBS="curl"
         - ROS_DISTRO="melodic"
-        - UPSTREAM_WORKSPACE="upstream.repos"
+        - UPSTREAM_WORKSPACE="upstream.repos" # note: branch is python
         # Build with coverage on, debug required for proper information in C++
-        - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING=ON -DCMAKE_BUILD_TYPE=Debug"
+        - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING=ON -DCMAKE_BUILD_TYPE=Debug" # note: add c++, look at robot calib repo for simple unit tests (rotation test)
         # List of packages to generate coverage reports
         - DOCKER_RUN_OPTS='-e COVERAGE_PKGS="example_pkg"'
         # Run coverage testing
-        - AFTER_SCRIPT="./.coverage.sh"
+        - AFTER_SCRIPT="./.coverage.sh" # ICI hook
       install:
         - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci -b master
       script:
