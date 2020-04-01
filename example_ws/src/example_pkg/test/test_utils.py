@@ -2,7 +2,7 @@
 
 import unittest
 
-from example_pkg.utils import get_time_str
+from example_pkg.utils import get_time_str, foo_bar_2
 
 
 class TestUtils(unittest.TestCase):
@@ -11,4 +11,11 @@ class TestUtils(unittest.TestCase):
         Smoke test for get_time_str
         """
         get_time_str()
+        self.assertTrue(True)
+
+    def test_foo_bar_2(self):
+        """
+        Smoke test for foo_bar_2
+        """
+        foo_bar_2()
         self.assertTrue(True)
