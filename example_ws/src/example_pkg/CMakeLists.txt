@@ -24,6 +24,8 @@ endif()
 if (CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
 
+  # TODO: Add a C++ test. See robot_calibration repo for simple example
+
   # This will run all NON-executable .py files in test folder
   catkin_add_nosetests(test)
 
@@ -31,7 +33,7 @@ if (CATKIN_ENABLE_TESTING)
   add_rostest(test/sample_rostest.test ARGS coverage:=ENABLE_COVERAGE_TESTING)
 
   if (ENABLE_COVERAGE_TESTING)
-    set(COVERAGE_EXCLUDES "*/${PROJECT_NAME}/test*")
+    set(COVERAGE_EXCLUDES "*/${PROJECT_NAME}/test*")  # applies to c++ coverage report only
     add_code_coverage(
       NAME ${PROJECT_NAME}_coverage_report
       DEPENDENCIES tests

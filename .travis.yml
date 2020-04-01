@@ -20,7 +20,7 @@ jobs:
         - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING=ON -DCMAKE_BUILD_TYPE=Debug"
         # List of packages to generate coverage reports
         - DOCKER_RUN_OPTS='-e COVERAGE_PKGS="example_pkg"'
-        # Run coverage testing
+        # Run coverage testing and upload results
         - AFTER_SCRIPT="./.coverage.sh"
       install:
         - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci -b master
