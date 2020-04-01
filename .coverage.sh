@@ -11,11 +11,9 @@ for pkg in $COVERAGE_PKGS; do
     extend="/opt/ros/$ROS_DISTRO"
     ici_exec_in_workspace "$extend" "$ws" catkin build $pkg -v --no-deps --catkin-make-args $pkg_coverage_report
 
-    # each package will overwrite the previous, rename the coverage file
-    mv "/root/.ros/coverage.xml" "/root/.ros/coverage_$pkg.xml"
+    echo "Uploading coverage results to codecov.io"
+
+    # Codecov will merge all these reports
+    bash <(curl -s https://codecov.io/bash) -s /root/.ros
 
 done
-
-echo "Uploading coverage results to codecov.io"
-
-bash <(curl -s https://codecov.io/bash) -s /root/.ros
