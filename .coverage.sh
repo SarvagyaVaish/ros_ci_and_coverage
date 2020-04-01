@@ -9,7 +9,7 @@ for pkg in $COVERAGE_PKGS; do
 
     ws=~/target_ws
     extend="/opt/ros/$ROS_DISTRO"
-    ici_exec_in_workspace "$extend" "$ws" catkin build $pkg -v --no-deps --catkin-make-args $pkg_coverage_report
+    ici_exec_in_workspace "$extend" "$ws" catkin build $pkg -v --no-deps --catkin-make-args ${pkg}_coverage_report
 
     echo "Uploading coverage results to codecov.io"
 

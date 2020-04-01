@@ -19,7 +19,7 @@ jobs:
         # Build with coverage on, debug required for proper information in C++
         - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING=ON -DCMAKE_BUILD_TYPE=Debug""
         # List of packages to generate coverage reports
-        - DOCKER_RUN_OPTS='-e COVERAGE_PKGS="example_pkg" -e ROS_HOME="/root/.ros"'
+        - DOCKER_RUN_OPTS='-e COVERAGE_PKGS="example_pkg"'
         # Run coverage testing
         - AFTER_SCRIPT="./.coverage.sh"
       install:
