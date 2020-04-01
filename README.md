@@ -14,6 +14,7 @@ Install ros dependencies:
 Run tests with coverage on. This creates several .coverage files in the ~/.ros folder, one for each test.
 
 `catkin_make run_tests -DENABLE_COVERAGE_TESTING=ON`
+
 `catkin_make run_tests_example_pkg -DENABLE_COVERAGE_TESTING=ON`
 
 Create a coverage report in the current directory by combining the the .coverage files.
@@ -33,4 +34,5 @@ Protip #1: View the html report in a browset directly from the commandline
 Protip #2: You can specify the --omit or --include flag while generating any of the above reports. This is handy for filtering files in the report. Check the python-coverage [docs](https://coverage.readthedocs.io/en/coverage-4.5.4/) for more options.
 
 `python-coverage report --omit="/opt/*,/usr/*"`
+
 `python-coverage report --include="*/example_pkg/*"`
