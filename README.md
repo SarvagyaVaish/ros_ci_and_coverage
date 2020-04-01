@@ -5,9 +5,9 @@ Codecov: [![codecov](https://codecov.io/gh/SarvagyaVaish/ros_ci_and_coverage/bra
 
 ## Running coverage on tests (locally)
 
-See the code_coverage repo for how to add coverage targets for your tests.
+See the [code_coverage](https://github.com/mikeferguson/code_coverage) repo for how to add coverage targets for your tests.
 
-Install ros dependencies like code_coverage:
+Install ros dependencies:
 
 `rosdep install --from-paths src --ignore-src -r -y`
 
@@ -30,7 +30,7 @@ Protip #1: View the html report in a browset directly from the commandline
 
 `google-chrome .coverage.html/index.html `
 
-Protip #2: You can specify the --omit or --include flag while generating any of the above reports. This is handy for filtering files in the report. Check the python-coverage docs for more options.
+Protip #2: You can specify the --omit or --include flag while generating any of the above reports. This is handy for filtering files in the report. Check the python-coverage [docs](https://coverage.readthedocs.io/en/coverage-4.5.4/) for more options.
 
 `python-coverage report --omit="/opt/*,/usr/*"`
 `python-coverage report --include="*/example_pkg/*"`
