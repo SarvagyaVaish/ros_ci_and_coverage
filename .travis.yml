@@ -16,13 +16,14 @@ jobs:
         - ADDITIONAL_DEBS="curl"
         - ROS_DISTRO="melodic"
         - UPSTREAM_WORKSPACE="upstream.repos"
-        - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING=ON -DCMAKE_BUILD_TYPE=Debug"
-        - DOCKER_RUN_OPTS="-e TRAVIS_COMMIT=$TRAVIS_COMMIT -e CODECOV_TOKEN=$CODECOV_TOKEN"
-        # Manually trigger combine (we aren't actually calling code_coverage target)
-        - AFTER_RUN_TARGET_TEST="cd /root/.ros && python-coverage combine && python-coverage xml"
-        # Upload coverage information to codecov.io
-        - AFTER_AFTER_RUN_TARGET_TEST="bash <(curl -s https://codecov.io/bash) -s /root/.ros -C $TRAVIS_COMMIT"
+        # Build with coverage on, debug required for proper information in C++
+        - CMAKE_ARGS="-DENABLE_COVERAGE_TESTING=ON -DCMAKE_BUILD_TYPE=Debug""
+        # List of packages to generate coverage reports for
+        - COVERAGE_PKGS="example_pkg"
+        - DOCKER_RUN_OPTS="- $COVERAGE_PKGS"
+        # Run coverage testing
+        - AFTER_SCRIPT="./.coverage.sh"
       install:
         - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci -b master
       script:
-        - .industrial_ci/travis.sh
+        - source ./.codecov.sh && .industrial_ci/travis.sh
