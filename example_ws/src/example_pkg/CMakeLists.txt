@@ -24,6 +24,8 @@ endif()
 if (CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
 
+  # TODO: Add a C++ test. See robot_calibration repo for simple example
+
   # This will run all NON-executable .py files in test folder
   catkin_add_nosetests(test)
 
