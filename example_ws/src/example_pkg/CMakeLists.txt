@@ -210,7 +210,7 @@ if (CATKIN_ENABLE_TESTING)
   add_rostest(test/sample_rostest.test ARGS coverage:=ENABLE_COVERAGE_TESTING)
 
   if (ENABLE_COVERAGE_TESTING)
-    set(COVERAGE_EXLCUDES "*/${PROJECT_NAME}/test*")
+    set(COVERAGE_EXCLUDES "*/${PROJECT_NAME}/test*")
     add_code_coverage(
       NAME ${PROJECT_NAME}_coverage_report
       DEPENDENCIES tests
