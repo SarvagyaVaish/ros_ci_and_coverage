@@ -3,6 +3,19 @@ TravisCI: [![Build Status](https://travis-ci.org/SarvagyaVaish/ros_ci_and_covera
 Codecov: [![codecov](https://codecov.io/gh/SarvagyaVaish/ros_ci_and_coverage/branch/master/graph/badge.svg)](https://codecov.io/gh/SarvagyaVaish/ros_ci_and_coverage)
 
 
+## How to add ci and coverage to your repo
+
+- Look at the .travis.yml in this repo and add elements to your own .travis.yml. TODO: add more details
+
+- Add code_coverage dependency to the package.xml of your ROS package
+
+`<test_depend>code_coverage</test_depend>`
+
+- Add elements from the example_pkg/CMakeLists.txt file to your package's CMakeLists.txt file. TODO: add more details
+
+- Add the .coverage.sh and .codecov.sh files to your repo.
+
+
 ## Running coverage on tests (locally)
 
 See the [code_coverage](https://github.com/mikeferguson/code_coverage) repo for how to add coverage targets for your tests.
