@@ -101,7 +101,7 @@ if (CATKIN_ENABLE_TESTING)
     catkin_add_nosetests(test)
 
     # A python node test
-    add_rostest(test/template_python_integration_test.launch ARGS coverage:=ENABLE_COVERAGE_TESTING)
+    # add_rostest(test/template_python_integration_test.launch ARGS coverage:=ENABLE_COVERAGE_TESTING)
 
     if (ENABLE_COVERAGE_TESTING)
         set(COVERAGE_EXCLUDES "*/${PROJECT_NAME}/test*")  # applies to c++ coverage report only
