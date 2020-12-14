@@ -1,0 +1,20 @@
+<launch>
+
+    <arg name="coverage" default="false"/>
+    <arg name="launch_prefix" value="$(eval 'python-coverage run -p' if arg('coverage') else '')" />
+
+    <!-- Run the main node -->
+    <node
+        name="template_python_node"
+        pkg="cobalt_template_pkg" type="template_python_node.py"
+        launch-prefix="$(arg launch_prefix)"
+    />
+
+    <!-- Run test -->
+    <test
+        test-name="template_python_integration_test"
+        pkg="cobalt_template_pkg" type="template_python_integration_test.py"
+        time-limit="5.0"
+    />
+
+</launch>

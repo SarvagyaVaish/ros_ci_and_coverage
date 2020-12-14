@@ -1,0 +1,16 @@
+<launch>
+
+    <!-- Run the main node -->
+    <node
+        name="template_cpp_node"
+        pkg="cobalt_template_pkg" type="template_cpp_node"
+    />
+
+    <!-- Run the test node -->
+    <test
+        test-name="template_cpp_integration_test"
+        pkg="cobalt_template_pkg" type="template_cpp_integration_test"
+        time-limit="5.0"
+    />
+
+</launch>
